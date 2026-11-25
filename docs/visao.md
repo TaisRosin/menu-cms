@@ -34,7 +34,7 @@ Os critérios funcionais, as divergências encontradas e as decisões para adequ
 
 Desenvolvimento incremental com OpenSpec simplificado e revisão do usuário entre etapas: análise e documentação; arquitetura; especificações; configuração; implementação; validação final.
 
-Análise e documentação inicial revisadas. Não houve execução da API ou validação com banco de dados. A próxima etapa é a definição da arquitetura, seguida das especificações com OpenSpec; a configuração e a implementação seguem após revisão das respectivas etapas.
+Análise, documentação inicial e arquitetura revisadas. A primeira mudança OpenSpec, `configurar-base-cms`, registra a arquitetura em `design.md`, os critérios de aceitação em `specs/` e as tarefas de configuração em `tasks.md`. A base foi implementada e validada, aguardando revisão do resultado. As funcionalidades serão especificadas incrementalmente por domínio. Não houve execução da API ou validação com banco de dados.
 
 ## Repositório e entrega
 
