@@ -28,19 +28,23 @@ O CMS SHALL permitir acesso direto a `/categories`, `/products`, `/spots`, `/gue
 - **THEN** título, endereço e indicação do menu correspondem à página restaurada
 
 ### Requirement: Estado inicial sem operação simulada
-As páginas ainda não implementadas SHALL identificar a seção e informar a implementação pendente, sem dados operacionais fictícios ou controles que simulem gravações. Categorias e Produtos SHALL apresentar sua gestão integrada à API, substituindo o aviso inicial.
+Todas as páginas do CMS SHALL apresentar seus fluxos integrados à API, com estados de consulta reais e sem dados operacionais fictícios.
 
 #### Scenario: Acesso a uma seção ainda não implementada
-- **WHEN** a pessoa abre Mesas, Comandas ou os detalhes de uma comanda nesta etapa
-- **THEN** encontra o título e o aviso de implementação pendente, sem listagens ou totais fictícios
+- **WHEN** a pessoa abre Comandas ou seus detalhes após esta etapa
+- **THEN** encontra os fluxos implementados, sem aviso de implementação pendente
 
 #### Scenario: Acesso à gestão de categorias
-- **WHEN** a pessoa acessa `/categories` pelo menu ou diretamente
-- **THEN** encontra a gestão de categorias com seu estado de consulta, sem o aviso de implementação pendente
+- **WHEN** a pessoa acessa /categories
+- **THEN** encontra a gestão integrada à API
 
 #### Scenario: Acesso à gestão de produtos
-- **WHEN** a pessoa acessa /products pelo menu ou diretamente
-- **THEN** encontra a gestão de produtos integrada à API, incluindo filtro e ações de cadastro, edição e exclusão
+- **WHEN** a pessoa acessa /products
+- **THEN** encontra a gestão integrada à API
+
+#### Scenario: Acesso à gestão de mesas
+- **WHEN** a pessoa acessa /spots
+- **THEN** encontra a gestão integrada à API
 
 ### Requirement: Endereço desconhecido
 O CMS SHALL exibir aviso de página não encontrada e permitir retorno à seção de Categorias quando o endereço não corresponder às rotas disponíveis.

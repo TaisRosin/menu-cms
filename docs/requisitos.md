@@ -1,6 +1,6 @@
 # Requisitos do CMS
 
-Os RF descrevem o resultado solicitado. A análise de compatibilidade ao final distingue esse resultado do comportamento atual do backend e registra as decisões de adequação, ainda não implementadas.
+Os RF descrevem o resultado solicitado e implementado. A análise de compatibilidade abaixo é o diagnóstico histórico anterior às adequações; não representa o estado atual do backend. A conclusão está registrada ao final e no roteiro de validação.
 
 ## Requisitos funcionais
 
@@ -65,4 +65,10 @@ O CRUD possui consultas, cadastro e atualização em `/categories`, `/products` 
 - **P07/P08:** disponibilizar consulta de comandas abertas com mesa, consulta dos pedidos por comanda e carregamento de itens e produtos. Calcular o total acumulado a partir dos totais dos pedidos, sem armazenar um total redundante na comanda. O contrato será definido nas especificações.
 - **P09:** aplicar as validações dos DTOs na API e exigir preço positivo também no backend; manter a validação dos formulários do CMS.
 
-As correções devem preservar o uso atual do cardápio e ser verificadas na integração. No CMS, utilizar o cabeçalho JSON correto e tratar os estados de consulta exigidos por RF09. Estas decisões não representam correções já executadas.
+As correções preservam a consulta padrão do cardápio. No CMS, o cabeçalho JSON e os estados de consulta seguem RF09.
+
+## Conclusão das adequações
+
+P01 a P09 foram implementados: ordem e indicadores persistidos; rotas corrigidas; situação no cadastro; edição do ícone; consulta opcional de inativos; comandas abertas com mesa e total calculado; pedidos filtrados com itens; quatro status livres; validação de DTOs e preço positivo. A API usa `DELIVERED`, com migração idempotente do enum legado. As observações de RN02–RN06 sobre limitações anteriores devem ser lidas como histórico: o contrato vigente está nas especificações em `openspec/specs`.
+
+Builds, lint e 190 testes passaram. Integração e mutações foram verificadas com tabelas temporárias no PostgreSQL, sem inserir dados de teste na operação. Consulte [validacao-final.md](validacao-final.md) para conferir a entrega.

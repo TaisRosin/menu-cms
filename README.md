@@ -34,11 +34,11 @@ Abra o endereço exibido pelo Vite. Sem uma URL válida, a interface mostra uma 
 
 ## Estado atual
 
-Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. Produtos também possui CRUD completo, filtro por categoria, preço em reais, situação e indicadores de vegetariano/novidade. Mesas possui listagem, cadastro ativo/inativo, edição e exclusão confirmada, com bloqueio para comandas vinculadas. Comandas ainda mantém o aviso de implementação pendente.
+CMS completo com CRUD de Categorias, Produtos e Mesas; consulta de comandas abertas; detalhes dos pedidos, itens e valores históricos; e alteração livre entre os quatro status de pedido. As telas tratam carregamento, falha, vazio e resultado das operações. Exclusões exigem confirmação e respeitam os vínculos existentes.
 
 Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Produtos exige também `vegetarian`, `isNew` e suporte à consulta `includeInactive=true`, mantendo ativos como padrão para o cardápio. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
 
-Os domínios serão implementados incrementalmente. Requisitos em [docs/requisitos.md](docs/requisitos.md), contexto em [docs/visao.md](docs/visao.md) e especificações em `openspec/`.
+Roteiro de conferência em [docs/validacao-final.md](docs/validacao-final.md), requisitos em [docs/requisitos.md](docs/requisitos.md), contexto em [docs/visao.md](docs/visao.md) e especificações em `openspec/`. Antes de iniciar a API atualizada, execute nela `npm run migrate:order-status` para adequar o enum de pedidos. Comandas e pedidos são consultados novamente a cada 30 segundos e após alterações de status.
 
 Categorias foi verificada com build, lint, 56 testes HTTP isolados no backend e testes no navegador usando a API NestJS com repositório em memória. A integração HTTP com PostgreSQL também foi validada em tabelas temporárias, incluindo integridade dos vínculos. A coluna displayOrder foi adicionada ao banco do projeto, preservando as categorias existentes. A leitura das categorias, filtro de produtos e recarregamento no cardápio de referência foram conferidos no navegador com banco real. Resultados em [tarefas de Categorias](openspec/changes/archive/2026-11-26-gerenciar-categorias/tasks.md).
 
@@ -57,7 +57,7 @@ O build é gerado em `dist`. `preview` serve para conferir o build localmente. E
 - `src/pages`: páginas das rotas.
 - `src/components`: layout, avisos compartilhados e componentes shadcn/ui.
 - `src/lib`: instância Axios, formatação e utilitários.
-- `src/cases/<domínio>`: DTOs, services, hooks e componentes serão adicionados conforme cada funcionalidade for implementada.
+- `src/cases/<domínio>`: DTOs, services, hooks e componentes de cada funcionalidade.
 
 ## Dependências adicionais
 
@@ -97,4 +97,8 @@ Build/lint aprovados, 118 testes HTTP de Categorias e Produtos aprovados e CRUD 
 
 ## Validação de Mesas
 
-CRUD conferido no navegador e PostgreSQL com tabelas temporárias, incluindo bloqueio por comanda aberta/encerrada. Build/lint aprovados e 151 testes HTTP dos três domínios aprovados. Resultados em [tarefas de Mesas](openspec/changes/gerenciar-mesas/tasks.md).
+CRUD conferido no navegador e PostgreSQL com tabelas temporárias, incluindo bloqueio por comanda aberta/encerrada. Build/lint aprovados e 151 testes HTTP dos três domínios aprovados. Resultados em [tarefas de Mesas](openspec/changes/archive/2026-11-26-gerenciar-mesas/tasks.md).
+
+## Validação de Comandas e Pedidos
+
+190 testes do backend aprovados nos cinco domínios. Consultas, totais, preços históricos e transições de status conferidos com PostgreSQL em tabelas temporárias. No navegador foram verificados detalhes, alteração e retorno de status, falha com nova tentativa, persistência após recarregamento e layout móvel. A migração `DELIVERY` → `DELIVERED` foi aplicada ao banco do projeto e sua segunda execução não fez alterações. Não havia pedidos nesse banco no momento da migração; a preservação de pedidos legados foi exercitada no ambiente temporário.
