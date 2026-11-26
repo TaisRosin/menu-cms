@@ -34,7 +34,9 @@ Abra o endereço exibido pelo Vite. Sem uma URL válida, a interface mostra uma 
 
 ## Estado atual
 
-Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. As páginas identificam funcionalidades ainda não implementadas. Não há dados simulados nem consultas operacionais nesta etapa; o backend não precisa estar executando para visualizar a navegação.
+Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias já possui listagem por `GET /categories`, com nome, ícone, ordem, situação e tratamento de carregamento, falha e lista vazia. Cadastro, edição e exclusão serão implementados nos próximos incrementos; as demais seções mantêm o aviso de implementação pendente.
+
+Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
 
 Os domínios serão implementados incrementalmente. Requisitos em [docs/requisitos.md](docs/requisitos.md), contexto em [docs/visao.md](docs/visao.md) e especificações em `openspec/`.
 
