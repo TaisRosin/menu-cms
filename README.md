@@ -34,13 +34,13 @@ Abra o endereço exibido pelo Vite. Sem uma URL válida, a interface mostra uma 
 
 ## Estado atual
 
-Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. As demais seções mantêm o aviso de implementação pendente.
+Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. Produtos também possui CRUD completo, filtro por categoria, preço em reais, situação e indicadores de vegetariano/novidade. Mesas e Comandas ainda mantêm o aviso de implementação pendente.
 
-Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
+Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Produtos exige também `vegetarian`, `isNew` e suporte à consulta `includeInactive=true`, mantendo ativos como padrão para o cardápio. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
 
 Os domínios serão implementados incrementalmente. Requisitos em [docs/requisitos.md](docs/requisitos.md), contexto em [docs/visao.md](docs/visao.md) e especificações em `openspec/`.
 
-Categorias foi verificada com build, lint, 56 testes HTTP isolados no backend e testes no navegador usando a API NestJS com repositório em memória. A integração com PostgreSQL, incluindo alteração de schema e integridade dos vínculos, permanece pendente de uma conexão válida. Resultados em [tarefas de Categorias](openspec/changes/gerenciar-categorias/tasks.md).
+Categorias foi verificada com build, lint, 56 testes HTTP isolados no backend e testes no navegador usando a API NestJS com repositório em memória. A integração HTTP com PostgreSQL também foi validada em tabelas temporárias, incluindo integridade dos vínculos. A coluna displayOrder foi adicionada ao banco do projeto, preservando as categorias existentes. A leitura das categorias, filtro de produtos e recarregamento no cardápio de referência foram conferidos no navegador com banco real. Resultados em [tarefas de Categorias](openspec/changes/archive/2026-11-26-gerenciar-categorias/tasks.md).
 
 ## Verificar e gerar build
 
@@ -90,3 +90,7 @@ OpenSpec é uma ferramenta externa de desenvolvimento, não uma dependência da 
 ## Versionamento
 
 Não versionar `.env`, dependências instaladas, saída de build ou credenciais. Manter `.env.example` atualizado. Commits pequenos em português seguem Conventional Commits e dependem de aprovação, assim como pushes.
+
+## Validação de Produtos
+
+Build/lint aprovados, 118 testes HTTP de Categorias e Produtos aprovados e CRUD de Produtos exercitado com PostgreSQL em tabelas temporárias e no navegador. As duas colunas novas foram adicionadas ao banco preservando os 39 produtos existentes. Detalhes em [tarefas de Produtos](openspec/changes/archive/2026-11-26-gerenciar-produtos/tasks.md).

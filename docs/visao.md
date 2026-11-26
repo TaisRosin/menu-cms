@@ -34,7 +34,7 @@ Os critérios funcionais, as divergências encontradas e as decisões para adequ
 
 Desenvolvimento incremental com OpenSpec simplificado e revisão do usuário entre etapas: análise e documentação; arquitetura; especificações; configuração; implementação; validação final.
 
-Análise, documentação inicial e arquitetura revisadas. A mudança `configurar-base-cms` foi validada e arquivada. O domínio de Categorias possui CRUD implementado e validado com testes isolados da API e no navegador. A mudança `gerenciar-categorias` permanece aberta para verificação da integração com PostgreSQL: a conexão disponível retornou erro de tenant/usuário e nenhum schema ou dado existente foi alterado. As funcionalidades seguintes serão especificadas por domínio.
+Análise, documentação inicial e arquitetura revisadas. A mudança `configurar-base-cms` foi validada e arquivada. O domínio de Categorias possui CRUD implementado e validado com testes isolados da API e no navegador. A integração com PostgreSQL foi validada após reativação do Supabase, e a coluna displayOrder foi incluída preservando os registros existentes. A revisão visual do cardápio de referência conectado ao banco também foi concluída, encerrando a validação de Categorias. As funcionalidades seguintes serão especificadas por domínio.
 
 ## Repositório e entrega
 
@@ -44,3 +44,7 @@ Análise, documentação inicial e arquitetura revisadas. A mudança `configurar
 - Histórico de commits frequentes que reflita a evolução real do projeto ao longo do bimestre. Um único commit ao final não atende ao requisito; não reconstruir artificialmente o histórico.
 
 Commits devem ser pequenos, separados por documentação, configuração, funcionalidade ou correção, validados previamente e escritos em português no padrão Conventional Commits. Commits e pushes dependem de aprovação explícita. Não versionar `.env`, credenciais, `node_modules` ou arquivos desnecessários; disponibilizar `.env.example` na configuração.
+
+## Produtos
+
+CRUD, filtro por categoria, situação, preço e indicadores implementados e validados. API mantém produtos ativos como consulta padrão do cardápio e permite incluir inativos no CMS. As próximas etapas são Mesas e Comandas/Pedidos.
