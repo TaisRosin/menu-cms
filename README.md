@@ -34,7 +34,7 @@ Abra o endereço exibido pelo Vite. Sem uma URL válida, a interface mostra uma 
 
 ## Estado atual
 
-Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. Produtos também possui CRUD completo, filtro por categoria, preço em reais, situação e indicadores de vegetariano/novidade. Mesas e Comandas ainda mantêm o aviso de implementação pendente.
+Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. Produtos também possui CRUD completo, filtro por categoria, preço em reais, situação e indicadores de vegetariano/novidade. Mesas possui listagem, cadastro ativo/inativo, edição e exclusão confirmada, com bloqueio para comandas vinculadas. Comandas ainda mantém o aviso de implementação pendente.
 
 Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Produtos exige também `vegetarian`, `isNew` e suporte à consulta `includeInactive=true`, mantendo ativos como padrão para o cardápio. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
 
@@ -94,3 +94,7 @@ Não versionar `.env`, dependências instaladas, saída de build ou credenciais.
 ## Validação de Produtos
 
 Build/lint aprovados, 118 testes HTTP de Categorias e Produtos aprovados e CRUD de Produtos exercitado com PostgreSQL em tabelas temporárias e no navegador. As duas colunas novas foram adicionadas ao banco preservando os 39 produtos existentes. Detalhes em [tarefas de Produtos](openspec/changes/archive/2026-11-26-gerenciar-produtos/tasks.md).
+
+## Validação de Mesas
+
+CRUD conferido no navegador e PostgreSQL com tabelas temporárias, incluindo bloqueio por comanda aberta/encerrada. Build/lint aprovados e 151 testes HTTP dos três domínios aprovados. Resultados em [tarefas de Mesas](openspec/changes/gerenciar-mesas/tasks.md).

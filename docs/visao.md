@@ -47,4 +47,4 @@ Commits devem ser pequenos, separados por documentação, configuração, funcio
 
 ## Produtos
 
-CRUD, filtro por categoria, situação, preço e indicadores implementados e validados. API mantém produtos ativos como consulta padrão do cardápio e permite incluir inativos no CMS. As próximas etapas são Mesas e Comandas/Pedidos.
+CRUD, filtro por categoria, situação, preço e indicadores implementados e validados. API mantém produtos ativos como consulta padrão do cardápio e permite incluir inativos no CMS. Mesas também foi implementado e validado, sem alteração de schema. A próxima etapa é Comandas/Pedidos.
