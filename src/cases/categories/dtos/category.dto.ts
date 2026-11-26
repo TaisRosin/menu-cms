@@ -5,3 +5,10 @@ export interface CategoryDTO {
   active: boolean
   displayOrder: number
 }
+
+export interface CategoryInputDTO {
+  name: string
+  icon: string | null
+  active: boolean
+  displayOrder: number
+}

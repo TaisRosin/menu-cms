@@ -34,11 +34,13 @@ Abra o endereço exibido pelo Vite. Sem uma URL válida, a interface mostra uma 
 
 ## Estado atual
 
-Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias já possui listagem por `GET /categories`, com nome, ícone, ordem, situação e tratamento de carregamento, falha e lista vazia. Cadastro, edição e exclusão serão implementados nos próximos incrementos; as demais seções mantêm o aviso de implementação pendente.
+Base do CMS com menu e páginas de Categorias, Produtos, Mesas e Comandas, além da rota de detalhes de uma comanda. Categorias possui listagem, cadastro, edição e exclusão com confirmação, validação de nome, URL e ordem, controle de situação e remoção do ícone. A interface trata carregamento, falha, lista vazia e conflito de exclusão por produtos vinculados. As demais seções mantêm o aviso de implementação pendente.
 
 Para carregar categorias, o backend precisa estar executando no endereço de `VITE_API_URL` e oferecer o campo `displayOrder`. Sem a API, a tela apresenta erro e permite tentar novamente. Não há dados operacionais simulados na aplicação.
 
 Os domínios serão implementados incrementalmente. Requisitos em [docs/requisitos.md](docs/requisitos.md), contexto em [docs/visao.md](docs/visao.md) e especificações em `openspec/`.
+
+Categorias foi verificada com build, lint, 56 testes HTTP isolados no backend e testes no navegador usando a API NestJS com repositório em memória. A integração com PostgreSQL, incluindo alteração de schema e integridade dos vínculos, permanece pendente de uma conexão válida. Resultados em [tarefas de Categorias](openspec/changes/gerenciar-categorias/tasks.md).
 
 ## Verificar e gerar build
 

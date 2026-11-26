@@ -34,7 +34,7 @@ Os critérios funcionais, as divergências encontradas e as decisões para adequ
 
 Desenvolvimento incremental com OpenSpec simplificado e revisão do usuário entre etapas: análise e documentação; arquitetura; especificações; configuração; implementação; validação final.
 
-Análise, documentação inicial e arquitetura revisadas. A primeira mudança OpenSpec, `configurar-base-cms`, registra a arquitetura em `design.md`, os critérios de aceitação em `specs/` e as tarefas de configuração em `tasks.md`. A base foi implementada e validada, aguardando revisão do resultado. As funcionalidades serão especificadas incrementalmente por domínio. Não houve execução da API ou validação com banco de dados.
+Análise, documentação inicial e arquitetura revisadas. A mudança `configurar-base-cms` foi validada e arquivada. O domínio de Categorias possui CRUD implementado e validado com testes isolados da API e no navegador. A mudança `gerenciar-categorias` permanece aberta para verificação da integração com PostgreSQL: a conexão disponível retornou erro de tenant/usuário e nenhum schema ou dado existente foi alterado. As funcionalidades seguintes serão especificadas por domínio.
 
 ## Repositório e entrega
 
