@@ -29,3 +29,9 @@ Comandas e pedidos são criados pelo fluxo do cardápio/API existente, não pelo
 - Nenhum dado operacional simulado é usado pelo CMS. A validação de mutações não inseriu registros de teste nas tabelas operacionais.
 
 O build do Vite emite aviso de tamanho do bundle principal acima de 500 kB; a compilação termina com sucesso. A conferência manual do usuário complementa estas validações.
+
+## Bônus: Kanban
+
+Em **Pedidos · Kanban**, confira mesa, itens e horário. Arraste um cartão de Novo para Em preparo, recarregue e confira a coluna. Teste Pronto, Entregue e o retorno a Novo. Use também “Mover para”, acessível pelo teclado. Durante a gravação os controles ficam bloqueados; em falha, o status confirmado é mantido.
+
+Validação desta etapa: lint/build aprovados; arraste, atualização via PATCH, persistência após recarregamento, falha e nova tentativa conferidos no navegador com API isolada em memória. A persistência PostgreSQL do endpoint reutilizado foi validada na etapa anterior. Nenhum pedido de teste foi inserido no banco operacional.

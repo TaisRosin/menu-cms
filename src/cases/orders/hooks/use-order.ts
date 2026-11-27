@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { apiConfigurationError } from '@/lib/axios'
 import { OrderService } from '../services/order.service'
 import type { OrderStatus } from '../dtos/order.dto'
-export function useOrders(guestCheckId: string, enabled: boolean) {
+export function useOrders(guestCheckId?: string, enabled = true) {
   return useQuery({
     queryKey: ['orders', guestCheckId],
     queryFn: () => OrderService.listAll(guestCheckId),

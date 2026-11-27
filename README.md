@@ -102,3 +102,11 @@ CRUD conferido no navegador e PostgreSQL com tabelas temporárias, incluindo blo
 ## Validação de Comandas e Pedidos
 
 190 testes do backend aprovados nos cinco domínios. Consultas, totais, preços históricos e transições de status conferidos com PostgreSQL em tabelas temporárias. No navegador foram verificados detalhes, alteração e retorno de status, falha com nova tentativa, persistência após recarregamento e layout móvel. A migração `DELIVERY` → `DELIVERED` foi aplicada ao banco do projeto e sua segunda execução não fez alterações. Não havia pedidos nesse banco no momento da migração; a preservação de pedidos legados foi exercitada no ambiente temporário.
+
+## Kanban de pedidos
+
+Acesse **Pedidos · Kanban** no menu (`/orders`). O quadro lista todos os pedidos em Novo, Em preparo, Pronto e Entregue, com mesa, itens, horário e total. Arraste pela alça do cartão ou use o seletor “Mover para” (alternativa por teclado e em telas pequenas).
+
+Cada movimento executa a mutation de status na API e invalida as consultas de pedidos/comandas. O cartão só muda após confirmação; falhas mantêm a posição anterior. Recarregar consulta novamente o status persistido. Soltar fora de uma coluna ou na mesma coluna não grava alterações.
+
+Dependência adicional: `@dnd-kit/core`, para arrastar e soltar com mouse e toque, áreas de destino e prévia do cartão. Referência: [documentação do DndContext](https://dndkit.com/legacy/api-documentation/context-provider/dnd-context/).

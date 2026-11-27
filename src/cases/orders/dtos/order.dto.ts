@@ -10,7 +10,7 @@ export type OrderItemDTO = {
 export type OrderDTO = {
   id: string
   createdAt: string
-  guestCheck: { id: string }
+  guestCheck: { id: string; spot: { id: string; name: string } }
   status: OrderStatus
   total: string | number
   items: OrderItemDTO[]

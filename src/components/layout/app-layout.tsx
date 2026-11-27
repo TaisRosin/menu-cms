@@ -1,4 +1,4 @@
-import { AlertCircle, Armchair, Layers, ReceiptText, Utensils, UtensilsCrossed } from 'lucide-react'
+import { AlertCircle, Armchair, Columns3, Layers, ReceiptText, Utensils, UtensilsCrossed } from 'lucide-react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { apiConfigurationError } from '@/lib/axios'
@@ -9,6 +9,7 @@ const navigation = [
   { to: '/products', label: 'Produtos', icon: UtensilsCrossed },
   { to: '/spots', label: 'Mesas', icon: Armchair },
   { to: '/guest-checks', label: 'Comandas', icon: ReceiptText },
+  { to: '/orders', label: 'Pedidos · Kanban', icon: Columns3 },
 ]
 
 export function AppLayout() {
